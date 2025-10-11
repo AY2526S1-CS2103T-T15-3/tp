@@ -54,4 +54,9 @@ public class Dependents {
     public int hashCode() {
         return Integer.hashCode(value);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
 }
