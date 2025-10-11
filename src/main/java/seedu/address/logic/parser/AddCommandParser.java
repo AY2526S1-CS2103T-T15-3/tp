@@ -60,7 +60,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         Salary salary = ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get());
         DateOfBirth dateOfBirth = ParserUtil.parseDateOfBirth(argMultimap.getValue(PREFIX_DATE_OF_BIRTH).get());
         MaritalStatus maritalStatus = ParserUtil.parseMaritalStatus(argMultimap.getValue(PREFIX_MARITAL_STATUS).get());
-        Dependents dependents = ParserUtil.parseDependents(Integer.parseInt(argMultimap.getValue(CliSyntax.PREFIX_DEPENDENTS).get()));
+        Dependents dependents = ParserUtil.parseDependents(
+                Integer.parseInt(argMultimap.getValue(CliSyntax.PREFIX_DEPENDENTS).get()));
         Occupation occupation = ParserUtil.parseOccupation(argMultimap.getValue(PREFIX_OCCUPATION).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
