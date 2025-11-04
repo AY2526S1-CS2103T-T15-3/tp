@@ -758,7 +758,7 @@ contact being managed.
 age, salary, relationship status, etc.).
 * **Tag**: A label applied to a client profile which provides additional information about a client.
 * **Command**: A typed instruction given to the system to perform an action (e.g. list, add, find, delete).
-* **Prefix**: A two-or-three letter code followed by a / (e.g., n/, p/, ip/) used in commands to specify which data 
+* **Prefix**: A one to three-letter code followed by a / (e.g. n/, p/, ip/, occ/) used in commands to specify which data 
 field the user wants to work with.
 * **Parameter**: The value provided by the user after a prefix. E.g. in the partial command `add n/John Doe`, 
 John Doe is the parameter for the n/ prefix.
