@@ -210,8 +210,9 @@ The sequence diagram below represents the reference frame in the above sequence 
 
 ![Interactions Inside FilterParser for the `filter s/>=3000 ip/undecided` Command](images/FilterParserSequenceDiagram.png)
 
-:information_source: **Note:** Due to a limitation of PlantUML, it is possible to show the ref frame box but
-not the sd frame box.
+:information_source: **Note:** The lifeline for `ArgumentMultiMap` should end at the destroy
+marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
+Additionally, it is possible to show the ref frame box but not the sd frame box using PlantUML.
 
 **Alternatives Considered:**
 * **Alternative 1 (current choice):** A composite predicate that uses specialized prefix parsers.
