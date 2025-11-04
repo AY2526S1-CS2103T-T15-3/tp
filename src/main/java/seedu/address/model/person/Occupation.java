@@ -18,6 +18,7 @@ public class Occupation {
     /*
      * The first character of the occupation must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
+     * Inspired by https://stackoverflow.com/questions/13750716/what-does-regular-expression-s-s-do.
      */
     public static final String VALIDATION_REGEX = "[^\\s].*";
 

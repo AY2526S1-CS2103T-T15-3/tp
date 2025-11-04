@@ -9,9 +9,9 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* Salary.java, line 31, regex for validating salary adapted from https://stackoverflow.com/questions/50524080/regex-with-maximum-2-digits-after-the-decimal-point.
-* Occupation.java, line 19, regex for validating non-blank strings adapted from https://stackoverflow.com/questions/13750716/what-does-regular-expression-s-s-do.
-* Name.java, line 29, regex for validating names adapted from https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java.
+* Salary.java, line 31, regex for validating salary inspired by https://stackoverflow.com/questions/50524080/regex-with-maximum-2-digits-after-the-decimal-point.
+* Occupation.java, line 19, regex for validating non-blank strings inspired by https://stackoverflow.com/questions/13750716/what-does-regular-expression-s-s-do.
+* Name.java, line 29, regex for validating names inspired by https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java.
 
 --------------------------------------------------------------------------------------------------------------------
 

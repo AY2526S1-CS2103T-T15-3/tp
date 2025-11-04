@@ -28,6 +28,7 @@ public class Salary {
      * It can be an integer (e.g. "100") or a decimal with up to 2 decimal places (e.g. "100.10").
      * Users can optionally include commas as separators for every 3 digits (e.g. "1,000" or "10,000.99").
      * Leading and/or trailing whitespaces are not allowed.
+     * Inspired by https://stackoverflow.com/questions/50524080/regex-with-maximum-2-digits-after-the-decimal-point.
      */
     private static final String VALIDATION_REGEX = "\\d+(\\.\\d{1,2})?";
     private static final Logger logger = LogsCenter.getLogger(Salary.class);
