@@ -137,8 +137,8 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="627" />
 
 The `Storage` component,
-* can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
-* inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
+* can save the address book data, insurance catalog data and user preference data in JSON format, and read them back into corresponding objects.
+* inherits from `AddressBookStorage`, `InsuranceCatalogStorage` and `UserPrefStorage`, which means it can be treated as one of them (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 ### Common classes
@@ -958,7 +958,7 @@ testers are expected to do more *exploratory* testing.
 * Created export functionality to back up client data in CSV format.
 
 ## **Appendix: Planned Enhancements**
-### Filter: 
+### Filter
 Currently, `dob/DATE_OF_BIRTH` only supports a "contains" search (e.g. `dob/-10-`). Users are not able
 to search for people born before or after a certain date. Hence, we seek to implement 2 modes of searching
 for `dob/DATE_OF_BIRTH`: "contains" (default) and "comparison".<br>
@@ -967,26 +967,26 @@ Example:
 * `filter dob/>=2000-01-01` finds people who are born on or after this date
 * `filter dob/<1990-12-31` finds people who are born before this date
 
-### Sort: 
+### Sort
 Currently, the existing comparator only sorts by unicode order, creating ambiguity for the human eye and making it seem like it groups common characters together instead of by a specific order. 
 Hence, we seek to implement other type of comparators, such as Collator to ensure human-readable alphabetical sorting, multilingual-safe. 
 
 E.g. Planned sort enhancements allows for sorting of Chinese names to be done in pinyin order and Japanese names to be done in kana order, followed by Kanji.
 
-### Using prefixes as part of insurance package name or description:
+### Using prefixes as part of insurance package name or description
 Currently, the use of prefixes (e.g., ip/, d/) is restricted to command syntax only and cannot be part of the actual insurance package name or description.
 In future iterations, we plan to enhance the parser to allow the inclusion of these prefixes within the insurance package name or description by implementing an escape mechanism.
 This will enable users to create more descriptive and meaningful package names and descriptions without being limited by the command syntax.
 Sample input: `addp ip/Gold ip/Health d/Includes ip/ and d/ prefixes`<br>
 Sample output: `... Insurance Package added: Name: [Gold Health], Description: [Includes ip/ and d/ prefixes]`
 
-### Edit individual tags: 
+### Edit individual tags
 We will update the current mechanism for editing tags to allow users to modify a tag directly without affecting other tags assigned to the client, giving them more control over adding or deleting individual tags. This will be achieved via a new sub-command or flag under the edit command.
 
 Sample input: `edit 1 t/ 1 from/high risk to/medium risk`<br>
 Sample output: `... Tags updated: [high risk] -> [medium risk]`
 
-### Delete Package: 
+### Delete Package
 Currently, users are unable to delete insurance packages that have at least one client assigned to it.
 This can be inconvenient as it requires the user to manually find and update all affected clients' insurance packages before they can delete the package. 
 We plan to improve this by allowing the deletion to proceed and automatically re-assigning all affected clients to the "Undecided" package.
@@ -1002,27 +1002,27 @@ We plan to improve this by allowing the deletion to proceed and automatically re
 - The "Gold" package is deleted.
 - Client A's insurance package is automatically set to "Undecided".
 
-### Find: 
+### Find
 `Find` implementation currently search for persons by doing exact matching keywords, e.g. `find alex david` will only list out people with name that has `alex` or `david` but not `alexa` which contains alex as a substring of its name. 
 In future iteration, we will update this method of matching such that it will match to any name that contains the given keyword, just like how `view` name matching works.
 
 Sample input:  `find alex david` <br>
 Sample output: a list of people whose name contains `alex` or `david` e.g. `alex` `david` `alexa` `alexandra`
 
-### InsurancePackage: 
+### InsurancePackage
 Allow one person to have more than one insurance package assigned to the person.
 Similar to `Tags`, multiple `ip/` prefixes can be used in commands, where insurance packages will be displayed as a collection.
 
 Sample input: `add n/John Doe p/98765432 e/johndoe@example.com a/123 Main St ip/Gold ip/Health ip/Life`<br>
 Sample output: `... Insurance Package: [Gold] [Health] [Life]`
 
-### Allow nested double quotations " in name field:
+### Allow nested double quotations " in name field
 We will implement quotation encapsulation for attribute values. If an entire attribute value is enclosed in double quotes, the parser will treat all content within the quotes as a single string literal, allowing the use of double quotes within the attribute itself via an escape character (\").
 
 Sample input: `add n/"Insurance \"Sales\" Agent" p/123...`<br>
 Sample output: `New person added: Insurance "Sales" Agent Phone: 123...`
 
-### Set maximum character limits for address/occupation/salary/name fields: 
+### Set maximum character limits for address/occupation/salary/name fields
 This is to improve data quality and maintain system stability. Excluding whitespaces, the proposed limits are: Name (50 chars), Occupation (50 chars), Salary (15 chars), Address (200 chars), and Tags (200 chars). Users who attempt to exceed the limit will receive an immediate validation error.
 
 Sample input: `edit 1 a/123ssssssss... (201 characters)`<br>
