@@ -25,6 +25,9 @@ activate ArgumentMultimap
 
 ArgumentMultimap --> ArgumentTokenizer : a
 deactivate ArgumentMultimap
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+ArgumentTokenizer -[hidden]-> ArgumentMultimap
+destroy ArgumentMultimap
 
 ArgumentTokenizer --> FilterCommandParser : a
 deactivate ArgumentTokenizer
