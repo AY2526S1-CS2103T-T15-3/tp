@@ -59,6 +59,8 @@ StatusBarFooter --|> UiPart
 HelpWindow --|> UiPart
 ViewWindow --|> UiPart
 PackageWindow --|> UiPart
+PackageListPanel -left-|> UiPart
+PackageCard -right-|> UiPart
 
 PackageCard ..> Model
 PersonCard ..> Model
