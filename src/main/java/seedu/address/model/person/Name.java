@@ -18,7 +18,7 @@ public class Name {
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
-     * Adapted from
+     * Inspired by
      * https://stackoverflow.com/questions/6493954/how-to-properly-write-regex-for-unicode-first-name-in-java.
      */
     private static final String VALIDATION_REGEX = "[\\p{L}\\p{M}\\p{N}\\s'\\-\\.\\(\\)/]+";
